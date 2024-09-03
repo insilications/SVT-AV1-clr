@@ -89,11 +89,11 @@ jobs:
             video: Chimera-Aerial_480x264_2997fps_10bit_420_150frames.y4m
     steps:
       - name: Download binaries SVT-AV1 (MSVC)
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-MSVC-binaries
       - name: Download videos
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-videos
       - name: ${{ matrix.bit }}bit tests
@@ -114,7 +114,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download binaries SVT-AV1 (MSVC)
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-MSVC-binaries
           path: Bin/Release
@@ -134,12 +134,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download binaries SVT-AV1 (MSVC)
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-MSVC-binaries
           path: Bin/Release
       - name: Download vectors
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-vectors-${{ hashFiles('test/e2e_test/test_vector_list.txt') }}
           path: test/vectors
