@@ -136,11 +136,11 @@ jobs:
             video: Chimera-Aerial_480x264_2997fps_10bit_420_150frames.y4m
     steps:
       - name: Download binaries SVT-AV1 (ubuntu)
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-ubuntu-binaries
       - name: Download videos
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-videos
       - name: Print system info
@@ -185,7 +185,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ${{ env.native_deps }} gcc-9 g++-9
       - name: Download videos
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-videos
       - name: Configure SVT-AV1 (master)
@@ -199,11 +199,11 @@ jobs:
           ./Bin/Release/SvtAv1EncApp --preset 0 -i Chimera-Aerial_480x264_2997fps_10bit_420_150frames.y4m -n 3 -b test-master-10bit-m0.ivf
           ./Bin/Release/SvtAv1EncApp --preset 8 -i Chimera-Aerial_480x264_2997fps_10bit_420_150frames.y4m -n 120 -b test-master-10bit-m8.ivf
       - name: Download 8bit pr tests
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-8bit-pr-tests
       - name: Download 10bit pr tests
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-10bit-pr-tests
       - name: Binary compare
@@ -239,7 +239,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download binaries SVT-AV1 (ubuntu)
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-ubuntu-binaries
           path: Bin/Release
@@ -260,12 +260,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download binaries SVT-AV1 (ubuntu)
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-ubuntu-binaries
           path: Bin/Release
       - name: Download vectors
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: svtav1-vectors-${{ hashFiles('test/e2e_test/test_vector_list.txt') }}
           path: test/vectors
